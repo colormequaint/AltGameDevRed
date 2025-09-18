@@ -1,11 +1,8 @@
-
-                        using UnityEngine;
-
+using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
-    // <summary>
-    // Represents the speed at which the player can walk.
-    // </summary>
+public GameObject Grabbable;
+public Transform Grabarea;
     public float walkSpeed = 5.0f;
 
     // <summary>
@@ -70,6 +67,10 @@ public class PlayerController : MonoBehaviour
         {
             isZoomed = !isZoomed;
             playerCamera.fieldOfView = isZoomed ? zoomFOV : 60.0f;
+        }
+        if (Input.GetButton("Fire1"))
+        {
+          Grabbable.transform.SetParent(Grabarea);
         }
     }
 }

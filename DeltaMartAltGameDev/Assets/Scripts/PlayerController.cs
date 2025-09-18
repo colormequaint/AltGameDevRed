@@ -72,6 +72,10 @@ public Transform Grabarea;
         {
           Grabbable.transform.SetParent(Grabarea);
         }
+        if (Input.GetButton("Fire2"))
+{
+Grabbable.transform.parent=null;
+}
     }
 }
                     

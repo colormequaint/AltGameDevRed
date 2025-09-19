@@ -5,7 +5,7 @@ using UnityEngine;
 public class Contains_Item : MonoBehaviour
 {
     public List<GameObject> colliderList = new List<GameObject>();
-    public int Itemsstored = 0;
+    public static int Itemsstored = 0;
     public void OnTriggerEnter(Collider collider)
     {
         if (!colliderList.Contains(collider.gameObject))

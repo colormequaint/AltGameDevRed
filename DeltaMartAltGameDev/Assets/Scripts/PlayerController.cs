@@ -1,6 +1,7 @@
 using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
+LayerMask layerMask;
 public GameObject Grabbable;
 public Transform Grabarea;
     public float walkSpeed = 5.0f;
@@ -35,6 +36,10 @@ public Transform Grabarea;
         characterController = GetComponent<CharacterController>();
         playerCamera = GetComponentInChildren<Camera>();
     }
+void Awake()
+{
+layerMask=LayerMask.GetMask("Grabable","Player");
+}
 
     void Update()
     {
@@ -70,7 +75,10 @@ public Transform Grabarea;
         }
         if (Input.GetButton("Fire1"))
         {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask)){
           Grabbable.transform.SetParent(Grabarea);
+            }
         }
         if (Input.GetButton("Fire2"))
 {
